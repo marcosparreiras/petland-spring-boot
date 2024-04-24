@@ -2,10 +2,12 @@ package com.petland.petlandapi.start;
 
 import com.petland.petlandapi.model.Address;
 import com.petland.petlandapi.model.Animal;
+import com.petland.petlandapi.model.ProductService;
 import com.petland.petlandapi.model.Profile;
 import com.petland.petlandapi.model.Registry;
 import com.petland.petlandapi.model.Species;
 import com.petland.petlandapi.repositories.AnimalRepository;
+import com.petland.petlandapi.repositories.ProductServiceRepository;
 import com.petland.petlandapi.repositories.RegistryRespository;
 import java.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,9 @@ public class StartApp implements ApplicationRunner {
 
   @Autowired
   private AnimalRepository animalRepository;
+
+  @Autowired
+  private ProductServiceRepository productServiceRepository;
 
   @Override
   public void run(ApplicationArguments args) throws Exception {
@@ -40,5 +45,12 @@ public class StartApp implements ApplicationRunner {
     nestor.setSpecies(Species.DOG);
 
     this.animalRepository.save(nestor);
+
+    ProductService service = new ProductService();
+    service.setName("grooming");
+    service.setService(true);
+    service.setValue(85.0);
+
+    this.productServiceRepository.save(service);
   }
 }
