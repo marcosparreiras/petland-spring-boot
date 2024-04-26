@@ -1,5 +1,7 @@
-package com.petland.petlandapi.model;
+package com.petland.petlandapi.model.entity;
 
+import com.petland.petlandapi.model.valueObjects.Address;
+import com.petland.petlandapi.model.valueObjects.Profile;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,7 +17,7 @@ import lombok.Setter;
 @Entity
 @NoArgsConstructor
 @Table(name = "registry")
-public class Registry {
+public class RegistryEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)

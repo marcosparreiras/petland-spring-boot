@@ -1,6 +1,7 @@
 package com.petland.petlandapi.repositories;
 
-import com.petland.petlandapi.model.Registry;
+import com.petland.petlandapi.model.entity.RegistryEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface RegistryRespository extends JpaRepository<Registry, Integer> {}
+public interface RegistryRespository
+  extends JpaRepository<RegistryEntity, Integer> {}

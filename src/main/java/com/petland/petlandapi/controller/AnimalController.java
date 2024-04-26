@@ -1,6 +1,6 @@
 package com.petland.petlandapi.controller;
 
-import com.petland.petlandapi.model.Animal;
+import com.petland.petlandapi.model.entity.AnimalEntity;
 import com.petland.petlandapi.repositories.AnimalRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +16,8 @@ public class AnimalController {
   private AnimalRepository animalRepository;
 
   @GetMapping
-  public List<Animal> index() {
-    List<Animal> animals = this.animalRepository.findAll();
+  public List<AnimalEntity> index() {
+    List<AnimalEntity> animals = this.animalRepository.findAll();
     return animals;
   }
 }

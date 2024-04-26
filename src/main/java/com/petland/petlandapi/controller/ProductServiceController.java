@@ -1,6 +1,6 @@
 package com.petland.petlandapi.controller;
 
-import com.petland.petlandapi.model.ProductService;
+import com.petland.petlandapi.model.entity.ProductServiceEntity;
 import com.petland.petlandapi.repositories.ProductServiceRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +14,8 @@ public class ProductServiceController {
   @Autowired
   private ProductServiceRepository productServiceRepository;
 
-  public List<ProductService> index() {
-    List<ProductService> productService =
+  public List<ProductServiceEntity> index() {
+    List<ProductServiceEntity> productService =
       this.productServiceRepository.findAll();
     return productService;
   }
