@@ -40,4 +40,15 @@ public class CostumerService {
     Integer costumerId = this.registryRespository.save(costumerEntity).getId();
     return costumerId;
   }
+
+  public void update(Integer costumerId, CostumerRequest costumerRequest)
+    throws Exception {
+    RegistryEntity costumerEntity =
+      this.registryRespository.findById(costumerId).orElse(null);
+    if (costumerEntity == null || !costumerEntity.getProfile().isCustomer()) {
+      throw new Exception("Costumer not found");
+    }
+    BeanUtils.copyProperties(costumerRequest, costumerEntity);
+    this.registryRespository.save(costumerEntity);
+  }
 }

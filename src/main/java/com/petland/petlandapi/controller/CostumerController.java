@@ -39,10 +39,10 @@ public class CostumerController {
   @PutMapping("/{id}")
   public ResponseEntity<Object> update(
     @PathVariable Integer id,
-    @RequestBody Object body
+    @RequestBody CostumerRequest costumerRequest
   ) {
-    // TODO
     try {
+      this.costumerService.update(id, costumerRequest);
       return ResponseEntity.status(204).body(null);
     } catch (Exception e) {
       return ResponseEntity.status(400).body(e.getMessage());
