@@ -6,6 +6,7 @@ import com.petland.petlandapi.service.AnimalService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,6 +43,16 @@ public class AnimalController {
   ) {
     try {
       this.animalService.update(id, animalRequest);
+      return ResponseEntity.status(204).body(null);
+    } catch (Exception e) {
+      return ResponseEntity.status(400).body(e.getMessage());
+    }
+  }
+
+  @DeleteMapping("/{id}")
+  public ResponseEntity<Object> delete(@PathVariable Integer id) {
+    try {
+      this.animalService.delete(id);
       return ResponseEntity.status(204).body(null);
     } catch (Exception e) {
       return ResponseEntity.status(400).body(e.getMessage());

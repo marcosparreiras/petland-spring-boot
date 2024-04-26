@@ -5,7 +5,6 @@ import com.petland.petlandapi.model.dto.AnimalResponse;
 import com.petland.petlandapi.model.entity.AnimalEntity;
 import com.petland.petlandapi.repositories.AnimalRepository;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,13 +38,21 @@ public class AnimalService {
 
   public void update(Integer animalId, AnimalRequest animalRequest)
     throws Exception {
-    Optional<AnimalEntity> animalOptional =
-      this.animalRepository.findById(animalId);
-    if (!animalOptional.isPresent()) {
+    AnimalEntity animalEntity =
+      this.animalRepository.findById(animalId).orElse(null);
+    if (animalEntity == null) {
       throw new Exception("Animal not found");
     }
-    AnimalEntity animalEntity = animalOptional.get();
     BeanUtils.copyProperties(animalRequest, animalEntity);
     this.animalRepository.save(animalEntity);
+  }
+
+  public void delete(Integer animalId) throws Exception {
+    AnimalEntity animalEntity =
+      this.animalRepository.findById(animalId).orElse(null);
+    if (animalEntity == null) {
+      throw new Exception("Animal not found");
+    }
+    this.animalRepository.delete(animalEntity);
   }
 }
