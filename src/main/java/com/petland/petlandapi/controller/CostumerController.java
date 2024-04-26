@@ -51,7 +51,11 @@ public class CostumerController {
 
   @DeleteMapping("/{id}")
   public ResponseEntity<Object> delete(@PathVariable Integer id) {
-    // TODO
-    return ResponseEntity.status(204).body(null);
+    try {
+      this.costumerService.delete(id);
+      return ResponseEntity.status(204).body(null);
+    } catch (Exception e) {
+      return ResponseEntity.status(400).body(e.getMessage());
+    }
   }
 }

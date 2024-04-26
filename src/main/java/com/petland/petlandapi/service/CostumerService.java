@@ -51,4 +51,13 @@ public class CostumerService {
     BeanUtils.copyProperties(costumerRequest, costumerEntity);
     this.registryRespository.save(costumerEntity);
   }
+
+  public void delete(Integer costumerId) throws Exception {
+    RegistryEntity costumerEntity =
+      this.registryRespository.findById(costumerId).orElse(null);
+    if (costumerEntity == null || !costumerEntity.getProfile().isCustomer()) {
+      throw new Exception("Costumer not found");
+    }
+    this.registryRespository.delete(costumerEntity);
+  }
 }
