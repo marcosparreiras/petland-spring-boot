@@ -1,5 +1,6 @@
 package com.petland.petlandapi.service;
 
+import com.petland.petlandapi.model.dto.AnimalRequest;
 import com.petland.petlandapi.model.dto.AnimalResponse;
 import com.petland.petlandapi.model.entity.AnimalEntity;
 import com.petland.petlandapi.repositories.AnimalRepository;
@@ -26,5 +27,13 @@ public class AnimalService {
       })
       .collect(Collectors.toList());
     return animalsResponse;
+  }
+
+  public void create(AnimalRequest animalRequest) {
+    AnimalEntity animalEntity = new AnimalEntity();
+    animalEntity.setName(animalRequest.getName());
+    animalEntity.setBirthDay(animalRequest.getBirthDay());
+    animalEntity.setSpecies(animalRequest.getSpecies());
+    this.animalRepository.save(animalEntity);
   }
 }
