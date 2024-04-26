@@ -1,5 +1,9 @@
 package com.petland.petlandapi.controller;
 
+import com.petland.petlandapi.model.dto.CostumerResponse;
+import com.petland.petlandapi.service.CostumerService;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,10 +18,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/costumer")
 public class CostumerController {
 
+  @Autowired
+  private CostumerService costumerService;
+
   @GetMapping
   public ResponseEntity<Object> index() {
-    // TODO
-    return ResponseEntity.ok().body(null);
+    List<CostumerResponse> costumerResponses = this.costumerService.list();
+    return ResponseEntity.ok().body(costumerResponses);
   }
 
   @PostMapping
