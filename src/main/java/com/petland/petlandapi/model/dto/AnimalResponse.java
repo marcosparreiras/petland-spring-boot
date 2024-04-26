@@ -1,14 +1,11 @@
 package com.petland.petlandapi.model.dto;
 
-import com.petland.petlandapi.model.valueObjects.Species;
-import java.time.LocalDate;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
-public class AnimalResponse {
+@Setter
+@Getter
+public class AnimalResponse extends AnimalRequest {
 
   private Integer id;
-  private String name;
-  private LocalDate birthDay;
-  private Species species;
 }
