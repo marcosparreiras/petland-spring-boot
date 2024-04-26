@@ -1,9 +1,10 @@
 package com.petland.petlandapi.controller;
 
 import com.petland.petlandapi.model.entity.AnimalEntity;
-import com.petland.petlandapi.repositories.AnimalRepository;
+import com.petland.petlandapi.service.AnimalService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,11 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class AnimalController {
 
   @Autowired
-  private AnimalRepository animalRepository;
+  private AnimalService animalService;
 
   @GetMapping
-  public List<AnimalEntity> index() {
-    List<AnimalEntity> animals = this.animalRepository.findAll();
-    return animals;
+  public ResponseEntity<Object> index() {
+    List<AnimalEntity> animals = this.animalService.getAll();
+    return ResponseEntity.ok().body(animals);
   }
 }
