@@ -1,5 +1,6 @@
 package com.petland.petlandapi.controller;
 
+import com.petland.petlandapi.model.dto.CostumerRequest;
 import com.petland.petlandapi.model.dto.CostumerResponse;
 import com.petland.petlandapi.service.CostumerService;
 import java.util.List;
@@ -28,9 +29,11 @@ public class CostumerController {
   }
 
   @PostMapping
-  public ResponseEntity<Object> create(@RequestBody Object body) {
-    // TODO
-    return ResponseEntity.status(201).body(null);
+  public ResponseEntity<Object> create(
+    @RequestBody CostumerRequest costumerRequest
+  ) {
+    Integer costumerId = this.costumerService.create(costumerRequest);
+    return ResponseEntity.status(201).body(costumerId);
   }
 
   @PutMapping("/{id}")

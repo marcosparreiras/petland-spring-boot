@@ -1,5 +1,6 @@
 package com.petland.petlandapi.service;
 
+import com.petland.petlandapi.model.dto.CostumerRequest;
 import com.petland.petlandapi.model.dto.CostumerResponse;
 import com.petland.petlandapi.model.entity.RegistryEntity;
 import com.petland.petlandapi.model.valueObjects.Profile;
@@ -30,5 +31,13 @@ public class CostumerService {
       })
       .collect(Collectors.toList());
     return costumersResponse;
+  }
+
+  public Integer create(CostumerRequest costumerRequest) {
+    RegistryEntity costumerEntity = new RegistryEntity();
+    costumerEntity.setProfile(this.profile);
+    BeanUtils.copyProperties(costumerRequest, costumerEntity);
+    Integer costumerId = this.registryRespository.save(costumerEntity).getId();
+    return costumerId;
   }
 }
