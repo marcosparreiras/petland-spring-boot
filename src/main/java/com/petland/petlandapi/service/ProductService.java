@@ -36,4 +36,17 @@ public class ProductService {
     Integer productId = this.productServiceRepository.save(product).getId();
     return productId;
   }
+
+  public void update(
+    Integer productId,
+    ProductServiceRequest productServiceRequest
+  ) throws Exception {
+    ProductServiceEntity product =
+      this.productServiceRepository.findById(productId).orElse(null);
+    if (product == null) {
+      throw new Exception("Product-Service not found");
+    }
+    BeanUtils.copyProperties(productServiceRequest, product);
+    this.productServiceRepository.save(product);
+  }
 }
