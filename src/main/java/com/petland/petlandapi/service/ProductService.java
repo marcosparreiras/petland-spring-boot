@@ -49,4 +49,13 @@ public class ProductService {
     BeanUtils.copyProperties(productServiceRequest, product);
     this.productServiceRepository.save(product);
   }
+
+  public void delete(Integer productId) throws Exception {
+    ProductServiceEntity productEntity =
+      this.productServiceRepository.findById(productId).orElse(null);
+    if (productEntity == null) {
+      throw new Exception("Product-Service not found");
+    }
+    this.productServiceRepository.delete(productEntity);
+  }
 }
