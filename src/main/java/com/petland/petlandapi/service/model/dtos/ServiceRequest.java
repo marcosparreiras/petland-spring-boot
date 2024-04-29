@@ -8,8 +8,6 @@ import lombok.Data;
 @Data
 public class ServiceRequest {
 
-  private Integer id;
-
   private String description;
   private LocalDate date;
   private Double value;
