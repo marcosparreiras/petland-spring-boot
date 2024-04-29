@@ -1,5 +1,6 @@
 package com.petland.petlandapi.service;
 
+import com.petland.petlandapi.model.dto.ProductServiceRequest;
 import com.petland.petlandapi.model.dto.ProductServiceResponse;
 import com.petland.petlandapi.model.entity.ProductServiceEntity;
 import com.petland.petlandapi.repositories.ProductServiceRepository;
@@ -27,5 +28,12 @@ public class ProductService {
       })
       .collect(Collectors.toList());
     return productsResponse;
+  }
+
+  public Integer create(ProductServiceRequest productServiceRequest) {
+    ProductServiceEntity product = new ProductServiceEntity();
+    BeanUtils.copyProperties(productServiceRequest, product);
+    Integer productId = this.productServiceRepository.save(product).getId();
+    return productId;
   }
 }
