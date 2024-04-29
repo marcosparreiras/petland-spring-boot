@@ -1,23 +1,22 @@
-package com.petland.petlandapi.model.entity;
+package com.petland.petlandapi.registry.model.entity;
 
-import com.petland.petlandapi.model.valueObjects.Address;
-import com.petland.petlandapi.model.valueObjects.Profile;
-import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Data
 @Entity
+@Table(name = "product_service")
+@AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "registry")
-public class RegistryEntity {
+public class ProductServiceEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,10 +24,6 @@ public class RegistryEntity {
   private Integer id;
 
   private String name;
-
-  @Embedded
-  private Profile profile;
-
-  @Embedded
-  private Address address;
+  private Double value;
+  private boolean service;
 }

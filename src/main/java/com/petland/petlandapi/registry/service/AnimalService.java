@@ -1,9 +1,9 @@
-package com.petland.petlandapi.service;
+package com.petland.petlandapi.registry.service;
 
-import com.petland.petlandapi.model.dto.AnimalRequest;
-import com.petland.petlandapi.model.dto.AnimalResponse;
-import com.petland.petlandapi.model.entity.AnimalEntity;
-import com.petland.petlandapi.repositories.AnimalRepository;
+import com.petland.petlandapi.registry.model.dto.AnimalRequest;
+import com.petland.petlandapi.registry.model.dto.AnimalResponse;
+import com.petland.petlandapi.registry.model.entity.AnimalEntity;
+import com.petland.petlandapi.registry.repositories.AnimalRepository;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.beans.BeanUtils;

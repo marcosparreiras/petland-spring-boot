@@ -1,4 +1,4 @@
-package com.petland.petlandapi.model.valueObjects;
+package com.petland.petlandapi.registry.model.valueObjects;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;

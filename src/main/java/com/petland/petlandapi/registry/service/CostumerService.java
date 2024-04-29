@@ -1,10 +1,10 @@
-package com.petland.petlandapi.service;
+package com.petland.petlandapi.registry.service;
 
-import com.petland.petlandapi.model.dto.CostumerRequest;
-import com.petland.petlandapi.model.dto.CostumerResponse;
-import com.petland.petlandapi.model.entity.RegistryEntity;
-import com.petland.petlandapi.model.valueObjects.Profile;
-import com.petland.petlandapi.repositories.RegistryRespository;
+import com.petland.petlandapi.registry.model.dto.CostumerRequest;
+import com.petland.petlandapi.registry.model.dto.CostumerResponse;
+import com.petland.petlandapi.registry.model.entity.RegistryEntity;
+import com.petland.petlandapi.registry.model.valueObjects.Profile;
+import com.petland.petlandapi.registry.repositories.RegistryRespository;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.beans.BeanUtils;

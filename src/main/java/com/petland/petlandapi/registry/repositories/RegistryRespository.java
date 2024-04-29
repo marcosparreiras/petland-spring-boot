@@ -1,7 +1,7 @@
-package com.petland.petlandapi.repositories;
+package com.petland.petlandapi.registry.repositories;
 
-import com.petland.petlandapi.model.entity.RegistryEntity;
-import com.petland.petlandapi.model.valueObjects.Profile;
+import com.petland.petlandapi.registry.model.entity.RegistryEntity;
+import com.petland.petlandapi.registry.model.valueObjects.Profile;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 

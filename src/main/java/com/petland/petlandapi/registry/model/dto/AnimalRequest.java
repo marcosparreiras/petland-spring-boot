@@ -1,6 +1,6 @@
-package com.petland.petlandapi.model.dto;
+package com.petland.petlandapi.registry.model.dto;
 
-import com.petland.petlandapi.model.valueObjects.Species;
+import com.petland.petlandapi.registry.model.valueObjects.Species;
 import java.time.LocalDate;
 import lombok.Data;
 
@@ -10,4 +10,5 @@ public class AnimalRequest {
   private String name;
   private LocalDate birthDay;
   private Species species;
+  private Integer tutor;
 }

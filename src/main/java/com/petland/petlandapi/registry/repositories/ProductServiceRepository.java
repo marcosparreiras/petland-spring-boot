@@ -1,6 +1,6 @@
-package com.petland.petlandapi.repositories;
+package com.petland.petlandapi.registry.repositories;
 
-import com.petland.petlandapi.model.entity.ProductServiceEntity;
+import com.petland.petlandapi.registry.model.entity.ProductServiceEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProductServiceRepository

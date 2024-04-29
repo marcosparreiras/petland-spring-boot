@@ -1,6 +1,6 @@
-package com.petland.petlandapi.model.entity;
+package com.petland.petlandapi.registry.model.entity;
 
-import com.petland.petlandapi.model.valueObjects.Species;
+import com.petland.petlandapi.registry.model.valueObjects.Species;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -35,4 +35,7 @@ public class AnimalEntity {
 
   @Enumerated(EnumType.STRING)
   private Species species;
+
+  @Column(name = "registy_tutor")
+  private Integer tutor;
 }

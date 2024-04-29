@@ -1,9 +1,9 @@
-package com.petland.petlandapi.service;
+package com.petland.petlandapi.registry.service;
 
-import com.petland.petlandapi.model.dto.ProductServiceRequest;
-import com.petland.petlandapi.model.dto.ProductServiceResponse;
-import com.petland.petlandapi.model.entity.ProductServiceEntity;
-import com.petland.petlandapi.repositories.ProductServiceRepository;
+import com.petland.petlandapi.registry.model.dto.ProductServiceRequest;
+import com.petland.petlandapi.registry.model.dto.ProductServiceResponse;
+import com.petland.petlandapi.registry.model.entity.ProductServiceEntity;
+import com.petland.petlandapi.registry.repositories.ProductServiceRepository;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.beans.BeanUtils;

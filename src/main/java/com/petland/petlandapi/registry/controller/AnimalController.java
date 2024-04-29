@@ -1,8 +1,8 @@
-package com.petland.petlandapi.controller;
+package com.petland.petlandapi.registry.controller;
 
-import com.petland.petlandapi.model.dto.AnimalRequest;
-import com.petland.petlandapi.model.dto.AnimalResponse;
-import com.petland.petlandapi.service.AnimalService;
+import com.petland.petlandapi.registry.model.dto.AnimalRequest;
+import com.petland.petlandapi.registry.model.dto.AnimalResponse;
+import com.petland.petlandapi.registry.service.AnimalService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
