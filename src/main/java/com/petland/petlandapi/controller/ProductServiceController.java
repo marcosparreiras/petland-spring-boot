@@ -1,9 +1,10 @@
 package com.petland.petlandapi.controller;
 
-import com.petland.petlandapi.model.entity.ProductServiceEntity;
-import com.petland.petlandapi.repositories.ProductServiceRepository;
+import com.petland.petlandapi.model.dto.ProductServiceResponse;
+import com.petland.petlandapi.service.ProductService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,11 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductServiceController {
 
   @Autowired
-  private ProductServiceRepository productServiceRepository;
+  private ProductService productService;
 
-  public List<ProductServiceEntity> index() {
-    List<ProductServiceEntity> productService =
-      this.productServiceRepository.findAll();
-    return productService;
+  public ResponseEntity<Object> index() {
+    List<ProductServiceResponse> products = this.productService.list();
+    return ResponseEntity.ok().body(products);
   }
 }
