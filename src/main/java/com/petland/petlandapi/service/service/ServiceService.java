@@ -1,5 +1,6 @@
 package com.petland.petlandapi.service.service;
 
+import com.petland.petlandapi.service.model.dtos.ServiceRequest;
 import com.petland.petlandapi.service.model.dtos.ServiceResponse;
 import com.petland.petlandapi.service.model.entity.ServiceEntity;
 import com.petland.petlandapi.service.repository.ServiceRepository;
@@ -26,5 +27,12 @@ public class ServiceService {
       })
       .collect(Collectors.toList());
     return servicesResponse;
+  }
+
+  public Integer create(ServiceRequest serviceRequest) {
+    ServiceEntity serviceEntity = new ServiceEntity();
+    BeanUtils.copyProperties(serviceRequest, serviceEntity);
+    Integer serviceId = this.serviceRepository.save(serviceEntity).getId();
+    return serviceId;
   }
 }
